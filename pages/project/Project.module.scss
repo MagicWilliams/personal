@@ -1,0 +1,73 @@
+.Project {
+  padding: 2.25rem;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.info,
+.mediaContainer {
+  width: 50%;
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.info {
+  flex-direction: column;
+  padding-right: 5vw;
+  justify-content: space-between;
+}
+
+.mediaContainer {
+  padding-left: 1rem;
+}
+
+.projectImg {
+  width: 100%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.icon {
+  height: 20px;
+  margin-right: 1vw;
+}
+
+.projectTitle {
+  margin-bottom: 0.5rem;
+  font-size: 50px;
+}
+
+.projectDescription {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 25px;
+}
+
+.linkIcon {
+  height: 16px;
+  margin-right: 1vw;
+}
+
+@media screen and (max-width: 900px) {
+  .Project {
+    padding-bottom: 0;
+  }
+
+  .projectWhen {
+    margin-bottom: 2rem;
+  }
+}

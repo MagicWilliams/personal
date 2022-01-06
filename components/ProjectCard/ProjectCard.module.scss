@@ -1,14 +1,28 @@
 .ProjectCard {
-    width: 350px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 4vw;
 
-    img, h3 {
-        width: 100%;
-    }
+  img {
+    height: 20vw;
+    border: 1px solid #cacaca;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .title {
-    width: 100%;
+  width: 100%;
+  font-weight: lighter;
 }
 
+@media screen and (max-width: 900px) {
+  .ProjectCard {
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

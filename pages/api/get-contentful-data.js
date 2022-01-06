@@ -5,13 +5,16 @@ const client = require("contentful").createClient({
 });
 
 export default async function handler(req, res) {
-  let data;
+  let projects, links;
   // Process a GET request
   const getEntries = await Promise.all([
-    await client.getEntries().then((res) => {
-      data = [...res.items];
+    await client.getEntries({ content_type: "project" }).then((res) => {
+      projects = [...res.items];
+    }),
+    await client.getEntries({ content_type: "links" }).then((res) => {
+      links = [...res.items];
     })
   ]);
 
-  res.status(200).json({ data });
+  res.status(200).json({ projects, links });
 }

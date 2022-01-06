@@ -1,0 +1,37 @@
+.Footer {
+  padding: 2rem;
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.links,
+.swatches {
+  display: flex;
+}
+
+.link {
+  margin-right: 2rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.Swatch {
+  border-radius: 4px;
+  height: 25px;
+  width: 25px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .Footer {
+    border-top: 1px solid #f0f0f0;
+    padding: 1rem;
+  }
+}

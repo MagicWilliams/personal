@@ -1,10 +1,18 @@
 import React from "react";
 import styles from "./ProjectCard.module.scss";
+import Link from "next/Link";
 
 export default function ProjectCard(props) {
+  const { name, when, references, media, description } = props.data.fields;
+  const { url } = media.fields.file;
+  const slug = "/project/" + name.replace(/\s+/g, "-").toLowerCase();
+
   return (
-    <div class={styles.ProjectCard}>
-        <h3 class={styles.title}>Project Title</h3>
-    </div>
+    <Link href={slug} scroll={false}>
+      <div class={styles.ProjectCard}>
+        <img src={url} />
+        <h3 class={styles.title}>{name}</h3>
+      </div>
+    </Link>
   );
 }
