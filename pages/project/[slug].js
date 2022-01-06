@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { inject } from "mobx-react";
 import { observer } from "mobx-react-lite";
 import Link from "next/Link";
+import Image from "next/Image";
 import styles from "./Project.module.scss";
 import Layout from "../../components/Layout/Layout";
 import Loading from "../../components/Loading/Loading";
@@ -34,51 +35,71 @@ const Project = inject("store")(
     const projectLink = references[0].fields;
     return isDesktop ? (
       <Layout>
-        <div class={styles.Project}>
-          <div style={widthStyles} class={styles.info}>
+        <div className={styles.Project}>
+          <div style={widthStyles} className={styles.info}>
             <div>
               <Link href="/">
-                <div class={styles.link}>
-                  <img class={styles.icon} src="/img/arrow.svg" />
-                  <p>back</p>
+                <div className={styles.link}>
+                  <Image
+                    src="/img/arrow.svg"
+                    width={20}
+                    height={20}
+                    alt="back"
+                  />
+                  <p className={styles.iconText}>back</p>
                 </div>
               </Link>
-              <h1 class={styles.projectTitle}>{name}</h1>
-              <p class={styles.projectWhen}>{when}</p>
-              <p class={styles.projectDescription}>{description}</p>
+              <h1 className={styles.projectTitle}>{name}</h1>
+              <p className={styles.projectWhen}>{when}</p>
+              <p className={styles.projectDescription}>{description}</p>
             </div>
             <Link href={projectLink.link}>
-              <div class={styles.link}>
-                <img class={styles.linkIcon} src="/img/link.svg" />
-                <p class={styles.projectLink}>{projectLink.name}</p>
+              <div className={styles.link}>
+                <Image
+                  src="/img/link.svg"
+                  width={16}
+                  height={16}
+                  alt={projectLink.name}
+                />
+                <p className={styles.projectLink}>{projectLink.name}</p>
               </div>
             </Link>
           </div>
-          <div style={widthStyles} class={styles.mediaContainer}>
-            <img class={styles.projectImg} src={url} />
+          <div style={widthStyles} className={styles.mediaContainer}>
+            <img className={styles.projectImg} src={url} alt={name} />
           </div>
         </div>
       </Layout>
     ) : (
       <Layout>
-        <div class={styles.Project}>
-          <div style={widthStyles} class={styles.info}>
+        <div className={styles.Project}>
+          <div style={widthStyles} className={styles.info}>
             <div>
               <Link href="/">
-                <div class={styles.link}>
-                  <img class={styles.icon} src="/img/arrow.svg" />
-                  <p>back</p>
+                <div className={styles.link}>
+                  <Image
+                    src="/img/arrow.svg"
+                    width={20}
+                    height={20}
+                    alt="back"
+                  />
+                  <p className={styles.iconText}>back</p>
                 </div>
               </Link>
-              <h1 class={styles.projectTitle}>{name}</h1>
-              <p class={styles.projectWhen}>{when}</p>
-              <img class={styles.projectImg} src={url} />
-              <p class={styles.projectDescription}>{description}</p>
+              <h1 className={styles.projectTitle}>{name}</h1>
+              <p className={styles.projectWhen}>{when}</p>
+              <img className={styles.projectImg} src={url} alt={name} />
+              <p className={styles.projectDescription}>{description}</p>
             </div>
             <Link href={projectLink.link}>
-              <div class={styles.link}>
-                <img class={styles.linkIcon} src="/img/link.svg" />
-                <p class={styles.projectLink}>{projectLink.name}</p>
+              <div className={styles.link}>
+                <Image
+                  src="/img/link.svg"
+                  alt={projectLink.name}
+                  width={16}
+                  height={16}
+                />
+                <p className={styles.projectLink}>{projectLink.name}</p>
               </div>
             </Link>
           </div>

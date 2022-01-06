@@ -3,7 +3,7 @@ import styles from "./Loading.module.scss";
 
 const Project = () => {
   return (
-    <div class={styles.Loading}>
+    <div className={styles.Loading}>
       <h2>Loading...</h2>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import Typist from "react-typist";
-import Link from "next/Link";
+import Image from "next/Image";
 import styles from "./Header.module.scss";
 
 export default function Header(props) {
@@ -13,21 +13,48 @@ export default function Header(props) {
   };
 
   return (
-    <div class={styles.Header}>
-      <div style={colorStyles} class={styles.text}>
-        <a href="/">
-          <Typist cursor={cursorOptions}>
-            <span class={styles.title}>david latimore ii</span>
-            <Typist.Backspace count={16} delay={1600} />
-            <span class={styles.title}>dlii</span>
-          </Typist>
-        </a>
-        <p class={styles.subtitle}>a digital archive of selected works</p>
+    <div className={styles.Header}>
+      <div
+        style={colorStyles}
+        className={styles.text}
+        onClick={() => (window.location.href = "/")}
+      >
+        <Typist cursor={cursorOptions}>
+          <span className={styles.title}>david latimore ii</span>
+          <Typist.Backspace count={16} delay={1600} />
+          <span className={styles.title}>dlii</span>
+        </Typist>
+        <p className={styles.subtitle}>a digital archive of selected works</p>
       </div>
-      <div class={styles.links}>
-        <img class={styles.icon} src="/img/github.svg" />
-        <img class={styles.icon} src="/img/ig.svg" />
-        <img class={styles.icon} src="/img/mail.svg" />
+      <div className={styles.links}>
+        <Image
+          src="/img/github.svg"
+          width={20}
+          height={20}
+          onClick={() =>
+            (window.location.href = "https://github.com/MagicWilliams")
+          }
+          alt="Peep my github lol"
+        />
+        <Image
+          src="/img/ig.svg"
+          width={20}
+          height={20}
+          alt="Follow me on the gram you know the vibes"
+          onClick={() =>
+            (window.location.href = "https://instagram.com/magic.zip")
+          }
+        />
+        <Image
+          src="/img/mail.svg"
+          width={20}
+          height={20}
+          onClick={() =>
+            (window.location.href =
+              "mailto:david.latimore@me.com?subject=Ayyyy")
+          }
+          alt="Let's talk"
+        />
       </div>
     </div>
   );

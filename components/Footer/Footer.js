@@ -5,16 +5,13 @@ import ReactTooltip from "react-tooltip";
 
 export default function Footer(props) {
   return (
-    <div class={styles.Footer}>
-      <div class={styles.links}>
-        <Link href="https://instagram.com/magic.zip">
-          <p class={styles.link}>photos</p>
-        </Link>
+    <div className={styles.Footer}>
+      <div className={styles.links}>
         <Link href="/files/resume.pdf">
-          <p class={styles.link}>résumé</p>
+          <p className={styles.link}>résumé</p>
         </Link>
       </div>
-      {/* <div class={styles.swatches}>
+      {/* <div className={styles.swatches}>
         <Swatch
           color="#ffb9a3"
           name="Coral Velour"
@@ -34,7 +31,7 @@ const Swatch = (props) => {
     <div
       onClick={() => handleColorChange(color)}
       style={swatchStyles}
-      class={styles.Swatch}
+      className={styles.Swatch}
     />
   );
 };

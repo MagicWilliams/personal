@@ -21,13 +21,17 @@ const Home = inject("store")(
     };
 
     useEffect(async () => {
-      await getProjects().then(() => setLoading(false));
+      async function fetchData() {
+        await getProjects().then(() => setLoading(false));
+      }
+
+      fetchData();
     });
 
     const isDesktop = useWindowSize().width > 900;
 
     return !loading ? (
-      <div class="portfolio">
+      <div className="portfolio">
         <Head>
           <title>david latimore ii: a digital portfolio</title>
           <meta name="description" content="Built with love." />

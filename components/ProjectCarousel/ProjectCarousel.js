@@ -7,7 +7,7 @@ export default function ProjectCarousel(props) {
   const { projects, links } = props;
 
   return projects ? (
-    <div class={styles.ProjectCarousel}>
+    <div className={styles.ProjectCarousel}>
       <Marquee className="carousel" speed={40}>
         {projects.map((project, i) => {
           return <ProjectCard data={project} links={links} key={i} />;
@@ -23,7 +23,7 @@ export function ProjectColumn(props) {
   const { projects, links } = props;
 
   return projects ? (
-    <div class={styles.ProjectColumn}>
+    <div className={styles.ProjectColumn}>
       {projects.map((project, i) => {
         return <ProjectCard data={project} links={links} key={i} />;
       })}

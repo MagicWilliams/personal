@@ -9,9 +9,9 @@ export default function ProjectCard(props) {
 
   return (
     <Link href={slug} scroll={false}>
-      <div class={styles.ProjectCard}>
-        <img src={url} />
-        <h3 class={styles.title}>{name}</h3>
+      <div className={styles.ProjectCard}>
+        <img src={url} alt={name} />
+        <h3 className={styles.title}>{name}</h3>
       </div>
     </Link>
   );
