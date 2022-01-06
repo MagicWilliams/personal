@@ -20,7 +20,7 @@ const Home = inject("store")(
       exit: { opacity: 0, x: 0, y: -100 },
     };
 
-    useEffect(async () => {
+    useEffect(() => {
       async function fetchData() {
         await getProjects().then(() => setLoading(false));
       }
