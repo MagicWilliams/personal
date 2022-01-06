@@ -1,6 +1,6 @@
 import React from "react";
 import Typist from "react-typist";
-import Image from "next/Image";
+import Image from "next/image";
 import styles from "./Header.module.scss";
 
 export default function Header(props) {

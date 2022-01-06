@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { inject } from "mobx-react";
 import { observer } from "mobx-react-lite";
-import Link from "next/Link";
-import Image from "next/Image";
+import Link from "next/link";
+import Image from "next/image";
 import styles from "./Project.module.scss";
 import Layout from "../../components/Layout/Layout";
 import Loading from "../../components/Loading/Loading";

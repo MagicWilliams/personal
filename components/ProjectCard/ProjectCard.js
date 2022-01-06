@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ProjectCard.module.scss";
-import Link from "next/Link";
+import Link from "next/link";
 
 export default function ProjectCard(props) {
   const { name, when, references, media, description } = props.data.fields;
