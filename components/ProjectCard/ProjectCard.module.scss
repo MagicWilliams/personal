@@ -6,11 +6,6 @@
   img {
     height: 20vw;
     border: 1px solid #cacaca;
-
-    &:hover {
-      -webkit-filter: invert(1);
-      filter: invert(1);
-    }
   }
 
   &:hover {
@@ -28,6 +23,17 @@
     img {
       height: auto;
       width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .ProjectCard {
+    img {
+      &:hover {
+        -webkit-filter: invert(1);
+        filter: invert(1);
+      }
     }
   }
 }
