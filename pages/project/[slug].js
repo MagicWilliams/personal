@@ -114,7 +114,6 @@ export async function getStaticProps({ params }) {
   let nextSlug;
   let project;
 
-  console.log(process.env.CONTENTFUL_ACCESS_TOKEN);
   const client = require("contentful").createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
