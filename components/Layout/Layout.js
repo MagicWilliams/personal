@@ -33,11 +33,13 @@ export default function Layout(props) {
 
   trueTitle = trueTitle.substring(0, trueTitle.length - 1);
   console.log(trueTitle);
-
+  const shortPageTtitle = "david latimore ii: a digital portfolio";
+  const longPageTitle = trueTitle + " - david latimore ii: a digital portfolio";
+  const pageTitle = trueTitle.length > 1 ? longPageTitle : shortPageTtitle;
   return (
     <div>
       <Head>
-        <title>{trueTitle + " - david latimore ii: a digital portfolio"}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content="Built with love." />
         <link rel="icon" href="favicon.ico" />
         <link
@@ -67,7 +69,7 @@ export default function Layout(props) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <NextSeo
-        title={trueTitle + " - david latimore ii: a digital portfolio"}
+        title={pageTitle}
         description="a digital archive of selected websites, mobile applications, music, photos, and (soon) more by david."
         canonical="https://davidlatimore.me"
         openGraph={{
