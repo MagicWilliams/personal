@@ -67,7 +67,7 @@ export default function Layout(props) {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <NextSeo
-        title="david latimore ii: a digital archive"
+        title={trueTitle + " - david latimore ii: a digital portfolio"}
         description="a digital archive of selected websites, mobile applications, music, photos, and (soon) more by david."
         canonical="https://davidlatimore.me"
         openGraph={{
