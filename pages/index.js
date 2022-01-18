@@ -29,12 +29,10 @@ const Home = inject("store")(
     const isDesktop = useWindowSize().width > 900;
 
     return !loading ? (
-      <div className="portfolio">
-        <Layout>
-          {isDesktop && <ProjectCarousel projects={projects} links={links} />}
-          {!isDesktop && <ProjectColumn projects={projects} links={links} />}
-        </Layout>
-      </div>
+      <Layout>
+        {isDesktop && <ProjectCarousel projects={projects} links={links} />}
+        {!isDesktop && <ProjectColumn projects={projects} links={links} />}
+      </Layout>
     ) : (
       <Loading />
     );

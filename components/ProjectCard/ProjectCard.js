@@ -12,7 +12,7 @@ export default function ProjectCard(props) {
       onMouseOver={() => setHovering(true)}
       onMouseOut={() => setHovering(false)}
     >
-      <Link href={slug} scroll={false}>
+      <Link href={slug}>
         <div className={styles.ProjectCard}>
           <img src={url} alt={name} />
           <h3 className={styles.title}>{name}</h3>

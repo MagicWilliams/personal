@@ -17,7 +17,6 @@ export default function Layout(props) {
   const [color, setColor] = useState("#00145c");
   const router = useRouter();
   const { slug } = useRouter().query;
-  console.log(slug);
 
   let trueTitle = "";
 
@@ -32,7 +31,6 @@ export default function Layout(props) {
   }
 
   trueTitle = trueTitle.substring(0, trueTitle.length - 1);
-  console.log(trueTitle);
   const shortPageTtitle = "david latimore ii: a digital portfolio";
   const longPageTitle = trueTitle + " - david latimore ii: a digital portfolio";
   const pageTitle = trueTitle.length > 1 ? longPageTitle : shortPageTtitle;
