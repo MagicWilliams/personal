@@ -11,7 +11,6 @@ import useWindowSize from "../utils/useWindowSize";
 const Home = inject("store")(
   observer((props) => {
     const { getProjects, projects, links } = props.store.contentfulStore;
-    const shuffledProjects = projects.sort((a, b) => 0.5 - Math.random());
 
     const [loading, setLoading] = useState(true);
     const variants = {
@@ -32,12 +31,8 @@ const Home = inject("store")(
 
     return !loading ? (
       <Layout>
-        {isDesktop && (
-          <ProjectCarousel projects={shuffledProjects} links={links} />
-        )}
-        {!isDesktop && (
-          <ProjectColumn projects={shuffledProjects} links={links} />
-        )}
+        {isDesktop && <ProjectCarousel projects={projects} links={links} />}
+        {!isDesktop && <ProjectColumn projects={projects} links={links} />}
       </Layout>
     ) : (
       <Loading />

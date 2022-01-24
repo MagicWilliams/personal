@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from "./Project.module.scss";
 import Layout from "../../components/Layout/Layout";
 import Loading from "../../components/Loading/Loading";
+import { ProjectMedia } from "../../components/ProjectMedia/ProjectMedia";
 import useWindowSize from "../../utils/useWindowSize";
 
 const Project = inject("store")(
@@ -30,8 +31,10 @@ const Project = inject("store")(
           paddingRight: "0",
         };
 
-    const { name, media, description, when, references } = project.fields;
+    const { name, media, description, when, references, mobileMedia } =
+      project.fields;
     const { url } = media.fields.file;
+    const mobileMediaUrl = mobileMedia.fields.file;
     const projectLink = references[0].fields;
     return isDesktop ? (
       <Layout>
@@ -66,7 +69,11 @@ const Project = inject("store")(
             </Link>
           </div>
           <div style={widthStyles} className={styles.mediaContainer}>
-            <img className={styles.projectImg} src={url} alt={name} />
+            <ProjectMedia
+              url={url}
+              name={name}
+              mobileMediaUrl={mobileMediaUrl}
+            />
           </div>
         </div>
       </Layout>

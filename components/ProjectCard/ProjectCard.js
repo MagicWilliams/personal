@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import styles from "./ProjectCard.module.scss";
+import { ProjectMedia } from "../ProjectMedia/ProjectMedia";
 import Link from "next/link";
 
 export default function ProjectCard(props) {
-  const { name, when, references, media, description } = props.data.fields;
+  const { name, media, mobileMedia } = props.data.fields;
   const { url } = media.fields.file;
+  const mobileMediaUrl = mobileMedia.fields.file;
   const slug = "/project/" + name.replace(/\s+/g, "-").toLowerCase();
   const [hovering, setHovering] = useState(false);
   return (
@@ -14,7 +16,7 @@ export default function ProjectCard(props) {
     >
       <Link href={slug}>
         <div className={styles.ProjectCard}>
-          <img src={url} alt={name} />
+          <ProjectMedia url={url} name={name} mobileMediaUrl={mobileMediaUrl} />
           <h3 className={styles.title}>{name}</h3>
         </div>
       </Link>

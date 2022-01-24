@@ -3,6 +3,7 @@
   flex-direction: column;
   margin: 2rem 4vw;
 
+  video,
   img {
     height: 20vw;
     border: 1px solid #cacaca;
@@ -20,6 +21,7 @@
 
 @media screen and (max-width: 900px) {
   .ProjectCard {
+    video,
     img {
       height: auto;
       width: 100%;
@@ -29,6 +31,7 @@
 
 @media screen and (min-width: 500px) {
   .ProjectCard {
+    video,
     img {
       &:hover {
         -webkit-filter: invert(1);
