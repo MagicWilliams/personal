@@ -11,9 +11,8 @@ export const ProjectMedia = (props) => {
   const { url, name, mobileMediaUrl } = props;
   const isMobile = useWindowSize().width < 500;
   const mediaToUse = isMobile ? mobileMediaUrl.url : url;
-  const [shouldUseImage, setShouldUseImage] = useState(false);
 
-  return shouldUseImage || isMobile ? (
+  return isMobile ? (
     <img src={mediaToUse} className={styles.ProjectMedia} alt={name} />
   ) : (
     <div

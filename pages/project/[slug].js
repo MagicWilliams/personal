@@ -56,17 +56,22 @@ const Project = inject("store")(
               <p className={styles.projectWhen}>{when}</p>
               <p className={styles.projectDescription}>{description}</p>
             </div>
-            <Link href={projectLink.link}>
-              <div className={styles.link}>
-                <Image
-                  src="/img/link.svg"
-                  width={16}
-                  height={16}
-                  alt={projectLink.name}
-                />
-                <p className={styles.projectLink}>{projectLink.name}</p>
-              </div>
-            </Link>
+            {references.map((ref, i) => {
+              const { name, link } = ref.fields;
+              return (
+                <Link href={link} key={i}>
+                  <div className={styles.link}>
+                    <Image
+                      src="/img/link.svg"
+                      width={16}
+                      height={16}
+                      alt={name}
+                    />
+                    <p className={styles.projectLink}>{name}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
           <div style={widthStyles} className={styles.mediaContainer}>
             <ProjectMedia
@@ -95,20 +100,29 @@ const Project = inject("store")(
               </Link>
               <h1 className={styles.projectTitle}>{name}</h1>
               <p className={styles.projectWhen}>{when}</p>
-              <img className={styles.projectImg} src={url} alt={name} />
+              <ProjectMedia
+                url={url}
+                name={name}
+                mobileMediaUrl={mobileMediaUrl}
+              />
               <p className={styles.projectDescription}>{description}</p>
             </div>
-            <Link href={projectLink.link}>
-              <div className={styles.link}>
-                <Image
-                  src="/img/link.svg"
-                  alt={projectLink.name}
-                  width={16}
-                  height={16}
-                />
-                <p className={styles.projectLink}>{projectLink.name}</p>
-              </div>
-            </Link>
+            {references.map((ref, i) => {
+              const { name, link } = ref.fields;
+              return (
+                <Link href={link} key={i}>
+                  <div className={styles.link}>
+                    <Image
+                      src="/img/link.svg"
+                      width={16}
+                      height={16}
+                      alt={name}
+                    />
+                    <p className={styles.projectLink}>{name}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </Layout>
