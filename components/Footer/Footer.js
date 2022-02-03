@@ -1,14 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
-import ReactTooltip from "react-tooltip";
 
 export default function Footer(props) {
   return (
     <div className={styles.Footer}>
       <div className={styles.links}>
         <Link href="/files/resume.pdf">
-          <p className={styles.link}>résumé</p>
+          <p className={styles.link}>résume</p>
         </Link>
       </div>
       {/* <div className={styles.swatches}>

@@ -5,11 +5,11 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 
 export default function ProjectCarousel(props) {
   const { projects, links } = props;
-
+  const shuffledProjects = projects.sort((a, b) => 0.5 - Math.random());
   return projects ? (
     <div className={styles.ProjectCarousel}>
       <Marquee className="carousel" speed={40}>
-        {projects.map((project, i) => {
+        {shuffledProjects.map((project, i) => {
           return <ProjectCard data={project} links={links} key={i} />;
         })}
       </Marquee>
@@ -21,10 +21,11 @@ export default function ProjectCarousel(props) {
 
 export function ProjectColumn(props) {
   const { projects, links } = props;
+  const shuffledProjects = projects.sort((a, b) => 0.5 - Math.random());
 
-  return projects ? (
+  return shuffledProjects ? (
     <div className={styles.ProjectColumn}>
-      {projects.map((project, i) => {
+      {shuffledProjects.map((project, i) => {
         return <ProjectCard data={project} links={links} key={i} />;
       })}
     </div>
