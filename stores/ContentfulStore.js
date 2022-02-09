@@ -1,8 +1,8 @@
-import { action, observable, makeAutoObservable, runInAction } from 'mobx';
+import { action, observable, makeAutoObservable, runInAction } from "mobx";
 
 class ContentfulStore {
   constructor() {
-    makeAutoObservable(this)
+    makeAutoObservable(this);
     this.projects = [];
     this.links = [];
   }
@@ -12,7 +12,7 @@ class ContentfulStore {
     let res = await fetch(`/api/get-contentful-data`).then(async (res) => {
       const response = await res.json();
       const { projects, links } = response;
-      data = { projects, links }
+      data = { projects, links };
     });
 
     runInAction(() => {
