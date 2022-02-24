@@ -7,6 +7,7 @@ import ProjectCarousel, {
 import Layout from "../components/Layout/Layout";
 import Loading from "../components/Loading/Loading";
 import useWindowSize from "../utils/useWindowSize";
+import ReactGA from "react-ga";
 
 const Home = inject("store")(
   observer((props) => {
@@ -28,6 +29,11 @@ const Home = inject("store")(
     });
 
     const isDesktop = useWindowSize().width > 900;
+
+    useEffect(() => {
+      ReactGA.initialize("UA-151714597-2");
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    });
 
     return !loading ? (
       <Layout>

@@ -8,6 +8,7 @@ import Layout from "../../components/Layout/Layout";
 import Loading from "../../components/Loading/Loading";
 import { ProjectMedia } from "../../components/ProjectMedia/ProjectMedia";
 import useWindowSize from "../../utils/useWindowSize";
+import ReactGA from "react-ga";
 
 const Project = inject("store")(
   observer((props) => {
@@ -36,6 +37,12 @@ const Project = inject("store")(
     const { url } = media.fields.file;
     const mobileMediaUrl = mobileMedia.fields.file;
     const projectLink = references[0].fields;
+
+    useEffect(() => {
+      ReactGA.initialize("UA-151714597-2");
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    });
+
     return isDesktop ? (
       <Layout>
         <div className={styles.Project}>
