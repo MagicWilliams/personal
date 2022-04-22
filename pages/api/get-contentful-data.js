@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   // Process a GET request
   const getEntries = await Promise.all([
     await client.getEntries({ content_type: "project" }).then((res) => {
-      projects = [...res.items].sort(() => (Math.random() > 0.5 ? 1 : -1));
+      projects = [...res.items];
     }),
     await client.getEntries({ content_type: "links" }).then((res) => {
       links = [...res.items];

@@ -8,9 +8,11 @@ export default function ProjectCarousel(props) {
   return projects ? (
     <div className={styles.ProjectCarousel}>
       <Marquee className="carousel" speed={40}>
-        {projects.map((project, i) => {
-          return <ProjectCard data={project} links={links} key={i} />;
-        })}
+        {projects
+          .sort(() => (Math.random() > 0.5 ? 1 : -1))
+          .map((project, i) => {
+            return <ProjectCard data={project} links={links} key={i} />;
+          })}
       </Marquee>
     </div>
   ) : (
