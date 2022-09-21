@@ -35,6 +35,10 @@ const Loading = () => {
         />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
+        <meta
+          name="twitter:image"
+          content="https://davidlatimore.me/img/d.png"
+        />
       </Head>
       <NextSeo
         title="david latimore ii: a digital archive"
@@ -59,7 +63,7 @@ const Loading = () => {
         twitter={{
           handle: "@magic_zip",
           site: "https://davidlatimore.me",
-          cardType: "summary_large_image",
+          cardType: "summary",
         }}
       />
       <h2>Loading...</h2>
