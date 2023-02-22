@@ -1,5 +1,4 @@
 import React from "react";
-import Typist from "react-typist";
 import Image from "next/image";
 import styles from "./Header.module.scss";
 
@@ -19,11 +18,7 @@ export default function Header(props) {
         className={styles.text}
         onClick={() => (window.location.href = "/")}
       >
-        <Typist cursor={cursorOptions}>
-          <span className={styles.title}>david latimore ii</span>
-          <Typist.Backspace count={16} delay={1600} />
-          <span className={styles.title}>dlii</span>
-        </Typist>
+        <span className={styles.title}>dlii</span>
         <p className={styles.subtitle}>maker of apps and websites and music</p>
       </div>
       <div className={styles.links}>

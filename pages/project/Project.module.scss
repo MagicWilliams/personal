@@ -52,8 +52,8 @@
 }
 
 .projectDescription {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   font-size: 25px;
 }
 
@@ -71,6 +71,10 @@
   .Project {
     padding: 1rem;
     padding-bottom: 0;
+  }
+
+  .info {
+    padding-bottom: 32px;
   }
 
   .projectWhen {
