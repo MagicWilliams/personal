@@ -45,7 +45,7 @@ export function ProjectList(props) {
         const slug = "/project/" + name.replace(/\s+/g, "-").toLowerCase();
 
         return (
-          <div className={styles.link}>
+          <div className={styles.link} key={i}>
             <Link href={slug}>{name}</Link>
           </div>
         );
