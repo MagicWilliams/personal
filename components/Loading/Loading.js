@@ -42,13 +42,12 @@ const Loading = () => {
       </Head>
       <NextSeo
         title="david latimore ii: a digital archive"
-        description="a digital archive of selected websites, mobile applications, music, photos, and (soon) more by david."
+        description="selected works"
         canonical="https://davidlatimore.me"
         openGraph={{
           url: "https://davidlatimore.me",
           title: "david's portfolio",
-          description:
-            "a digital archive of selected websites, mobile applications, music, photos, and (soon) more by david.",
+          description: "selected works",
           images: [
             {
               url: "https://davidlatimore.me/img/open_graph.png",

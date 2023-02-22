@@ -5,9 +5,9 @@ import { NextSeo } from "next-seo";
 import Head from "next/head";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import styles from "./Layout.module.scss";
 
 export default function Layout(props) {
+  const { view, flipView, isMobile } = props;
   const variants = {
     hidden: { opacity: 0, x: -200, y: 0 },
     enter: { opacity: 1, x: 0, y: 0 },
@@ -68,13 +68,12 @@ export default function Layout(props) {
       </Head>
       <NextSeo
         title={pageTitle}
-        description="a digital archive of selected websites, mobile applications, music, photos, and (soon) more by david."
+        description="selected works"
         canonical="https://davidlatimore.me"
         openGraph={{
           url: "https://davidlatimore.me",
           title: "david's portfolio",
-          description:
-            "a digital archive of selected websites, mobile applications, music, photos, and (soon) more by david.",
+          description: "selected works",
           images: [
             {
               url: "https://davidlatimore.me/img/open_graph.png",
@@ -102,7 +101,12 @@ export default function Layout(props) {
       >
         <Header color={color} />
         {props.children}
-        <Footer handleColorChange={setColor} />
+        <Footer
+          handleColorChange={setColor}
+          view={view}
+          flipView={flipView}
+          isMobile={isMobile}
+        />
       </motion.div>
     </div>
   );

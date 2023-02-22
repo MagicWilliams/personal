@@ -24,7 +24,7 @@ export default function Header(props) {
           <Typist.Backspace count={16} delay={1600} />
           <span className={styles.title}>dlii</span>
         </Typist>
-        <p className={styles.subtitle}>a digital archive of selected works</p>
+        <p className={styles.subtitle}>maker of apps and websites and music</p>
       </div>
       <div className={styles.links}>
         <Image
