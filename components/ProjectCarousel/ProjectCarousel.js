@@ -46,7 +46,6 @@ export function ProjectList(props) {
       {projects.map((currProject, i) => {
         const { name } = currProject.fields;
         const slug = '/project/' + name.replace(/\s+/g, '-').toLowerCase();
-        console.log(width > 768 && project && project.fields.name === name);
         const thumbStyles =
           width > 768 && project && project.fields.name === name
             ? {
@@ -62,7 +61,7 @@ export function ProjectList(props) {
               };
 
         return (
-          <div>
+          <div key={i}>
             <video
               style={thumbStyles}
               className="Projects--listItem-thumbnail"

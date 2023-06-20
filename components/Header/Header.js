@@ -20,7 +20,7 @@ export default function Header(props) {
       >
         <span className={styles.title}>dlii</span>
         <p className={styles.subtitle}>
-          i make websites & apps when i'm not making music
+          i make websites & apps when i&apos;m not making music
         </p>
       </div>
       <div className={styles.links}>

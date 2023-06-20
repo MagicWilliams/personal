@@ -1,14 +1,14 @@
-import React from "react";
-import Link from "next/link";
-import styles from "./Footer.module.scss";
+import React from 'react';
+import Link from 'next/link';
+import styles from './Footer.module.scss';
 
 export default function Footer(props) {
   const { view, flipView, isMobile } = props;
-  let viewTxt = view === "gallery" ? "list view" : "gallery view";
+  let viewTxt = view === 'gallery' ? 'list view' : 'gallery view';
   return (
     <div className={styles.Footer}>
       <div className={styles.links}>
-        <Link href="/files/resume.pdf">
+        <Link href="/files/resume.pdf" passHref>
           <p className={styles.link}>résume</p>
         </Link>
         {!isMobile && (
@@ -28,7 +28,7 @@ export default function Footer(props) {
   );
 }
 
-const Swatch = (props) => {
+const Swatch = props => {
   const { color, handleColorChange } = props;
   const swatchStyles = {
     backgroundColor: color,
