@@ -62,14 +62,17 @@ export function ProjectList(props) {
 
         return (
           <div key={i}>
-            <video
-              style={thumbStyles}
-              className="Projects--listItem-thumbnail"
-              src={project.fields.media.fields.file.url}
-              autoPlay
-              loop
-              muted
-            />
+            {project && (
+              <video
+                style={thumbStyles}
+                className="Projects--listItem-thumbnail"
+                src={project.fields.media.fields.file.url}
+                autoPlay
+                loop
+                muted
+              />
+            )}
+
             <div
               className={styles.link}
               key={i}
