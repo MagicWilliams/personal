@@ -1,19 +1,27 @@
-import React, { useState, useRef, useEffect } from "react";
-import styles from "./ProjectMedia.module.scss";
-import useWindowSize from "../../utils/useWindowSize";
+import React, { useState, useRef, useEffect } from 'react';
+import styles from './ProjectMedia.module.scss';
+import Image from 'next/image';
+import useWindowSize from '../../utils/useWindowSize';
 
 const isSafari = () => {
   const ua = navigator.userAgent.toLowerCase();
-  return ua.indexOf("safari") > -1 && ua.indexOf("chrome") < 0;
+  return ua.indexOf('safari') > -1 && ua.indexOf('chrome') < 0;
 };
 
-export const ProjectMedia = (props) => {
+export const ProjectMedia = props => {
   const { url, name, mobileMediaUrl } = props;
   const isMobile = useWindowSize().width < 500;
   const mediaToUse = isMobile ? mobileMediaUrl.url : url;
 
   return isMobile ? (
-    <img src={mediaToUse} className={styles.ProjectMedia} alt={name} />
+    <div className={styles.mobileMediaContainer}>
+      <Image
+        src={`https:` + mediaToUse}
+        className={styles.ProjectMedia}
+        layout="fill"
+        alt={name}
+      />
+    </div>
   ) : (
     <div
       className={styles.ProjectMedia}
