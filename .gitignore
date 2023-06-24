@@ -39,3 +39,4 @@ sanity.config.js
 .vercel
 
 /studio
+/public/files
