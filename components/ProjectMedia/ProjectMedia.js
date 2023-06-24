@@ -9,14 +9,18 @@ const isSafari = () => {
 };
 
 export const ProjectMedia = props => {
-  const { url, name, mobileMediaUrl } = props;
-  const isMobile = useWindowSize().width < 500;
-  const mediaToUse = isMobile ? mobileMediaUrl.url : url;
+  const { url, name, media } = props;
 
-  return isMobile ? (
+  if (!media && !url) {
+    return null;
+  }
+
+  return media._type === 'image' ? (
     <div className={styles.mobileMediaContainer}>
       <Image
-        src={`https:` + mediaToUse}
+        src={url}
+        placeholder="blur"
+        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
         className={styles.ProjectMedia}
         layout="fill"
         alt={name}

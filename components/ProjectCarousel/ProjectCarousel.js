@@ -6,14 +6,21 @@ import Link from 'next/link';
 import useWindowSize from '../../utils/useWindowSize';
 
 export default function ProjectCarousel(props) {
-  const { projects, links } = props;
+  const { projects, links, urlFor } = props;
   return projects ? (
     <div className={styles.ProjectCarousel}>
       <Marquee className="carousel" speed={40}>
         {projects
           .sort(() => (Math.random() > 0.5 ? 1 : -1))
           .map((project, i) => {
-            return <ProjectCard data={project} links={links} key={i} />;
+            return (
+              <ProjectCard
+                data={project}
+                urlFor={urlFor}
+                links={links}
+                key={i}
+              />
+            );
           })}
       </Marquee>
     </div>
@@ -23,12 +30,14 @@ export default function ProjectCarousel(props) {
 }
 
 export function ProjectColumn(props) {
-  const { projects, links } = props;
+  const { projects, links, urlFor } = props;
 
   return projects ? (
     <div className={styles.ProjectColumn}>
       {projects.map((project, i) => {
-        return <ProjectCard data={project} links={links} key={i} />;
+        return (
+          <ProjectCard urlFor={urlFor} data={project} links={links} key={i} />
+        );
       })}
     </div>
   ) : (
