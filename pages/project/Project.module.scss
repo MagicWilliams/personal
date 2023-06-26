@@ -31,10 +31,11 @@
   width: 100%;
 }
 
-.link {
+.backLink {
   display: flex;
   align-items: center;
   margin-top: 1rem;
+  margin-bottom: 8px;
 
   &:hover {
     text-decoration: underline;
@@ -55,6 +56,14 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
   font-size: 25px;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .linkIcon {

@@ -3,8 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
+import { PortableText } from '@portabletext/react';
 import styles from './Project.module.scss';
 import Layout from '../../components/Layout/Layout';
+import { videoAssetFor } from '../../utils/videoAssetFor';
 import Loading from '../../components/Loading/Loading';
 import { ProjectMedia } from '../../components/ProjectMedia/ProjectMedia';
 import useWindowSize from '../../utils/useWindowSize';
@@ -22,13 +24,17 @@ const Project = props => {
   }
 
   const { description, date, media, title } = project;
-  const url = urlFor(media[0].asset._ref).url();
-  console.log(url);
+  const url =
+    media[0]._type === 'file'
+      ? videoAssetFor(media[0].asset._ref).url
+      : urlFor(media[0].asset._ref).url();
 
   useEffect(() => {
     ReactGA.initialize('UA-151714597-2');
     ReactGA.pageview(window.location.pathname + window.location.search);
   });
+
+  console.log(title, date, description);
 
   return (
     <Layout>
@@ -36,14 +42,17 @@ const Project = props => {
         <div className={styles.info}>
           <div>
             <Link href="/">
-              <div className={styles.link}>
+              <div className={styles.backLink}>
                 <Image src="/img/arrow.svg" width={20} height={20} alt="back" />
                 <p className={styles.iconText}>back</p>
               </div>
             </Link>
             <h1 className={styles.projectTitle}>{title}</h1>
             <p className={styles.projectWhen}>{date}</p>
-            <p className={styles.projectDescription}>{description}</p>
+
+            <div className={styles.projectDescription}>
+              <PortableText value={description} />
+            </div>
           </div>
         </div>
         <div className={styles.mediaContainer}>
