@@ -92,7 +92,7 @@ function urlFor(source) {
 export async function getServerSideProps() {
   const projects = await client.fetch(`*[_type == "project"]`);
   const publishedProjects = projects.filter((project, i) => {
-    return project._id.substring(0, 7) !== 'drafts.';
+    return project._id.substring(0, 7) !== 'drafts.' && project.show === true;
   });
   return {
     props: {
