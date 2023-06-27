@@ -90,3 +90,14 @@
     margin-bottom: 2rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .Project {
+    flex-direction: column;
+  }
+
+  .info,
+  .mediaContainer {
+    width: 100%;
+  }
+}

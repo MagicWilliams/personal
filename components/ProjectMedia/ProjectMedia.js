@@ -15,7 +15,9 @@ export const ProjectMedia = props => {
     return null;
   }
 
-  return media._type === 'image' || isMobile ? (
+  console.log(isMobile);
+
+  return isMobile ? (
     <div className={styles.mobileMediaContainer}>
       <Image
         src={url}

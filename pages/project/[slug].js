@@ -15,9 +15,7 @@ import ReactGA from 'react-ga';
 const Project = props => {
   const { project, projects } = props;
   const { width } = useWindowSize();
-  const isTablet = width <= 900 && width >= 500;
   const isMobile = width < 500;
-  const isDesktop = !isTablet && !isMobile;
 
   useEffect(() => {
     ReactGA.initialize('UA-151714597-2');
@@ -48,15 +46,31 @@ const Project = props => {
             </Link>
             <h1 className={styles.projectTitle}>{title}</h1>
             <p className={styles.projectWhen}>{date}</p>
-
+            {isMobile && (
+              <div className={styles.mediaContainer}>
+                <ProjectMedia
+                  isMobile={isMobile}
+                  url={url}
+                  media={media[0]}
+                  title={title}
+                />
+              </div>
+            )}
             <div className={styles.projectDescription}>
               <PortableText value={description} />
             </div>
           </div>
         </div>
-        <div className={styles.mediaContainer}>
-          <ProjectMedia url={url} media={media[0]} title={title} />
-        </div>
+        {!isMobile && (
+          <div className={styles.mediaContainer}>
+            <ProjectMedia
+              isMobile={isMobile}
+              url={url}
+              media={media[0]}
+              title={title}
+            />
+          </div>
+        )}
       </div>
     </Layout>
   );

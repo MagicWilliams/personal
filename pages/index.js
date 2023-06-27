@@ -44,7 +44,6 @@ const Home = props => {
   useEffect(() => {
     ReactGA.initialize('UA-151714597-2');
     ReactGA.pageview(window.location.pathname + window.location.search);
-    console.log('view: ', view);
   });
 
   return !loading ? (
