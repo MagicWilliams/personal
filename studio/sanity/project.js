@@ -25,6 +25,12 @@ export default {
       of: [{type: 'image'}, {type: 'file'}],
     },
     {
+      name: 'mobileMedia',
+      type: 'array',
+      title: 'Mobile Media',
+      of: [{type: 'image'}, {type: 'file'}],
+    },
+    {
       name: 'show',
       type: 'boolean',
       title: 'Make Visible on Site?',

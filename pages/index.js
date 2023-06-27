@@ -40,6 +40,7 @@ const Home = props => {
 
   const isDesktop = useWindowSize().width > 900;
   const isMobile = useWindowSize().width < 500;
+
   useEffect(() => {
     ReactGA.initialize('UA-151714597-2');
     ReactGA.pageview(window.location.pathname + window.location.search);
@@ -49,10 +50,20 @@ const Home = props => {
   return !loading ? (
     <Layout view={view} flipView={flipView} isMobile={isMobile}>
       {isDesktop && view === 'gallery' && (
-        <ProjectCarousel urlFor={urlFor} projects={projects} links={links} />
+        <ProjectCarousel
+          isMobile={isMobile}
+          urlFor={urlFor}
+          projects={projects}
+          links={links}
+        />
       )}
       {!isDesktop && view === 'gallery' && (
-        <ProjectColumn urlFor={urlFor} projects={projects} links={links} />
+        <ProjectColumn
+          isMobile={isMobile}
+          urlFor={urlFor}
+          projects={projects}
+          links={links}
+        />
       )}
       {view === 'list' && (
         <ProjectList urlFor={urlFor} projects={projects} links={links} />

@@ -18,7 +18,7 @@ const config = {
 const client = createClient(config);
 
 export default function ProjectCarousel(props) {
-  const { projects, links, urlFor } = props;
+  const { projects, links, urlFor, isMobile } = props;
   return projects ? (
     <div className={styles.ProjectCarousel}>
       <Marquee className="carousel" speed={40}>
@@ -27,6 +27,7 @@ export default function ProjectCarousel(props) {
           .map((project, i) => {
             return (
               <ProjectCard
+                isMobile={isMobile}
                 data={project}
                 urlFor={urlFor}
                 links={links}
@@ -42,13 +43,19 @@ export default function ProjectCarousel(props) {
 }
 
 export function ProjectColumn(props) {
-  const { projects, links, urlFor } = props;
+  const { projects, links, urlFor, isMobile } = props;
 
   return projects ? (
     <div className={styles.ProjectColumn}>
       {projects.map((project, i) => {
         return (
-          <ProjectCard urlFor={urlFor} data={project} links={links} key={i} />
+          <ProjectCard
+            isMobile={isMobile}
+            urlFor={urlFor}
+            data={project}
+            links={links}
+            key={i}
+          />
         );
       })}
     </div>
@@ -58,22 +65,21 @@ export function ProjectColumn(props) {
 }
 
 export function ProjectList(props) {
-  const { projects, urlFor } = props;
+  const { projects, urlFor, isMobile } = props;
   const [project, setProject] = useState(null);
-  const { width } = useWindowSize();
 
   return projects ? (
     <div className={styles.ProjectList}>
       {projects.map((currProject, i) => {
-        const { title, media } = currProject;
+        const { title, media, mobileMedia } = currProject;
         const slug = '/project/' + title.replace(/\s+/g, '-').toLowerCase();
         const coverUrl =
-          media[0]._type === 'file'
+          media[0]._type === 'file' && !isMobile
             ? videoAssetFor(media[0].asset._ref).url
             : urlFor(media[0].asset._ref).url();
 
         const thumbStyles =
-          width > 768 && project && project.title === title
+          !isMobile && project && project.title === title
             ? {
                 display: 'block',
                 zIndex: 3,

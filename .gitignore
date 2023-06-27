@@ -31,10 +31,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# sanity 
-sanity.cli.js
-sanity.config.js
-
 # vercel
 .vercel
 

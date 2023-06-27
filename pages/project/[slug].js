@@ -28,13 +28,12 @@ const Project = props => {
     return <Loading />;
   }
 
-  const { description, date, media, title } = project;
-  const url =
-    media[0]._type === 'file'
-      ? videoAssetFor(media[0].asset._ref).url
-      : urlFor(media[0].asset._ref).url();
-
-  console.log(title, date, description);
+  const { description, date, media, mobileMedia, title } = project;
+  const url = isMobile
+    ? urlFor(mobileMedia[0].asset._ref).url()
+    : media[0]._type === 'file' && !isMobile
+    ? videoAssetFor(media[0].asset._ref).url
+    : urlFor(media[0].asset._ref).url();
 
   return (
     <Layout>

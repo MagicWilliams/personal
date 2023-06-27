@@ -9,13 +9,13 @@ const isSafari = () => {
 };
 
 export const ProjectMedia = props => {
-  const { url, name, media } = props;
+  const { url, name, media, isMobile } = props;
 
   if (!media && !url) {
     return null;
   }
 
-  return media._type === 'image' ? (
+  return media._type === 'image' || isMobile ? (
     <div className={styles.mobileMediaContainer}>
       <Image
         src={url}

@@ -1,11 +1,13 @@
 // lib
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { createClient } from 'next-sanity';
 
 // components
 import { ProjectMedia } from '../ProjectMedia/ProjectMedia';
 import { videoAssetFor } from '../../utils/videoAssetFor';
-import { createClient } from 'next-sanity';
+import { useWindowSize } from '../../utils/useWindowSize';
+
 import styles from './ProjectCard.module.scss';
 
 const config = {
@@ -19,12 +21,14 @@ const config = {
 const client = createClient(config);
 
 export default function ProjectCard(props) {
-  const { urlFor, data } = props;
-  const { title, media } = data;
-  const coverUrl =
-    media[0]._type === 'file'
-      ? videoAssetFor(media[0].asset._ref).url
-      : urlFor(media[0].asset._ref).url();
+  const { urlFor, data, isMobile } = props;
+  const { title, media, mobileMedia } = data;
+  console.log(isMobile);
+  const coverUrl = isMobile
+    ? urlFor(mobileMedia[0].asset._ref).url()
+    : media[0]._type === 'image'
+    ? urlFor(media[0].asset._ref).url()
+    : videoAssetFor(media[0].asset._ref).url;
   const slug = '/project/' + title.replace(/\s+/g, '-').toLowerCase();
 
   const [hovering, setHovering] = useState(false);
@@ -35,7 +39,12 @@ export default function ProjectCard(props) {
     >
       <Link href={slug} passHref>
         <div className={styles.ProjectCard}>
-          <ProjectMedia url={coverUrl} media={media[0]} title={title} />
+          <ProjectMedia
+            url={coverUrl}
+            isMobile={isMobile}
+            media={media[0]}
+            title={title}
+          />
           <h3 className={styles.title}>{title}</h3>
         </div>
       </Link>
