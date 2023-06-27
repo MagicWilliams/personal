@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from 'next-sanity';
@@ -19,6 +19,11 @@ const Project = props => {
   const isMobile = width < 500;
   const isDesktop = !isTablet && !isMobile;
 
+  useEffect(() => {
+    ReactGA.initialize('UA-151714597-2');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
+
   if (!project || width === -1) {
     return <Loading />;
   }
@@ -28,11 +33,6 @@ const Project = props => {
     media[0]._type === 'file'
       ? videoAssetFor(media[0].asset._ref).url
       : urlFor(media[0].asset._ref).url();
-
-  useEffect(() => {
-    ReactGA.initialize('UA-151714597-2');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  });
 
   console.log(title, date, description);
 
