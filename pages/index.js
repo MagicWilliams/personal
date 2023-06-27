@@ -43,6 +43,7 @@ const Home = props => {
   useEffect(() => {
     ReactGA.initialize('UA-151714597-2');
     ReactGA.pageview(window.location.pathname + window.location.search);
+    console.log('view: ', view);
   });
 
   return !loading ? (
@@ -53,7 +54,9 @@ const Home = props => {
       {!isDesktop && view === 'gallery' && (
         <ProjectColumn urlFor={urlFor} projects={projects} links={links} />
       )}
-      {view === 'list' && <ProjectList projects={projects} links={links} />}
+      {view === 'list' && (
+        <ProjectList urlFor={urlFor} projects={projects} links={links} />
+      )}
     </Layout>
   ) : (
     <Loading />

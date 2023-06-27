@@ -4,6 +4,18 @@ import Marquee from 'react-fast-marquee';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import Link from 'next/link';
 import useWindowSize from '../../utils/useWindowSize';
+import { videoAssetFor } from '../../utils/videoAssetFor';
+import { createClient } from 'next-sanity';
+
+const config = {
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
+  apiVersion: '2022-07-22',
+  token: process.env.SANITY_ACCESS_TOKEN,
+  useCdn: false,
+};
+
+const client = createClient(config);
 
 export default function ProjectCarousel(props) {
   const { projects, links, urlFor } = props;
@@ -46,17 +58,22 @@ export function ProjectColumn(props) {
 }
 
 export function ProjectList(props) {
-  const { projects } = props;
+  const { projects, urlFor } = props;
   const [project, setProject] = useState(null);
   const { width } = useWindowSize();
 
   return projects ? (
     <div className={styles.ProjectList}>
       {projects.map((currProject, i) => {
-        const { name } = currProject.fields;
-        const slug = '/project/' + name.replace(/\s+/g, '-').toLowerCase();
+        const { title, media } = currProject;
+        const slug = '/project/' + title.replace(/\s+/g, '-').toLowerCase();
+        const coverUrl =
+          media[0]._type === 'file'
+            ? videoAssetFor(media[0].asset._ref).url
+            : urlFor(media[0].asset._ref).url();
+
         const thumbStyles =
-          width > 768 && project && project.fields.name === name
+          width > 768 && project && project.title === title
             ? {
                 display: 'block',
                 zIndex: 3,
@@ -75,7 +92,7 @@ export function ProjectList(props) {
               <video
                 style={thumbStyles}
                 className="Projects--listItem-thumbnail"
-                src={project.fields.media.fields.file.url}
+                src={coverUrl}
                 autoPlay
                 loop
                 muted
@@ -87,7 +104,7 @@ export function ProjectList(props) {
               key={i}
               onMouseOver={() => setProject(currProject)}
             >
-              <Link href={slug}>{name}</Link>
+              <Link href={slug}>{title}</Link>
             </div>
           </div>
         );
