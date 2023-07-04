@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useRouter } from "next/router";
-import { NextSeo } from "next-seo";
-import Head from "next/head";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import Head from 'next/head';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 export default function Layout(props) {
   const { view, flipView, isMobile } = props;
@@ -14,25 +14,25 @@ export default function Layout(props) {
     exit: { opacity: 0, x: 0, y: -100 },
   };
 
-  const [color, setColor] = useState("#00145c");
+  const [color, setColor] = useState('#00145c');
   const router = useRouter();
   const { slug } = useRouter().query;
 
-  let trueTitle = "";
+  let trueTitle = '';
 
   if (slug) {
-    let words = slug.replace(/-/g, " ").split(" ");
+    let words = slug.replace(/-/g, ' ').split(' ');
     for (var a = 0; a < words.length; a++) {
       trueTitle +=
         words[a].substring(0, 1).toUpperCase() +
         words[a].substring(1, words[a].length) +
-        " ";
+        ' ';
     }
   }
 
   trueTitle = trueTitle.substring(0, trueTitle.length - 1);
-  const shortPageTtitle = "david latimore ii: a digital portfolio";
-  const longPageTitle = trueTitle + " - david latimore ii: a digital portfolio";
+  const shortPageTtitle = 'david latimore ii: a digital portfolio';
+  const longPageTitle = trueTitle + ' - david latimore ii: a digital portfolio';
   const pageTitle = trueTitle.length > 1 ? longPageTitle : shortPageTtitle;
   return (
     <div>
@@ -71,24 +71,24 @@ export default function Layout(props) {
         description="selected works"
         canonical="https://davidlatimore.me"
         openGraph={{
-          url: "https://davidlatimore.me",
+          url: 'https://davidlatimore.me',
           title: "david's portfolio",
-          description: "selected works",
+          description: 'selected works',
           images: [
             {
-              url: "https://davidlatimore.me/img/open_graph.png",
+              url: 'https://davidlatimore.me/img/open_graph.png',
               width: 800,
               height: 600,
-              alt: "Og Image Alt",
-              type: "image/png",
+              alt: 'Og Image Alt',
+              type: 'image/png',
             },
           ],
-          site_name: "david latimore ii: a digital archive",
+          site_name: 'david latimore ii: a digital archive',
         }}
         twitter={{
-          handle: "@magic_zip",
-          site: "https://davidlatimore.me",
-          cardType: "summary_large_image",
+          handle: '@magic_zip',
+          site: 'https://davidlatimore.me',
+          cardType: 'summary_large_image',
         }}
       />
       <motion.div
@@ -96,12 +96,13 @@ export default function Layout(props) {
         initial="hidden" // Set the initial state to variants.hidden
         animate="enter" // Animated state to variants.enter
         exit="exit" // Exit state (used later) to variants.exit
-        transition={{ type: "linear" }} // Set the transition to linear
+        transition={{ type: 'linear' }} // Set the transition to linear
         className="Layout"
       >
         <Header color={color} />
         {props.children}
         <Footer
+          page={props.page}
           handleColorChange={setColor}
           view={view}
           flipView={flipView}

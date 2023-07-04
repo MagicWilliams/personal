@@ -1,150 +1,114 @@
 @font-face {
-  font-family: "Rubik";
-  src: url("/fonts/Rubik.ttf") format("truetype");
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "Rufina";
-  src: url("/fonts/Rufina.ttf") format("truetype");
+  font-family: 'Rufina';
+  src: url('/fonts/Rufina.ttf') format('truetype');
 }
 
-html,
-body {
+.App {
   padding: 0;
   margin: 0;
-  font-family: "Rufina", serif;
+  font-family: 'Rufina', serif;
   font-style: normal;
   color: black;
   overflow-x: hidden;
 }
 
-a {
+.App a {
   color: inherit;
   text-decoration: none;
 }
 
-* {
+.App * {
   box-sizing: border-box;
 }
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 32px;
+$spacing-xl: 48px;
+$spacing-xxl: 64px;
+$mobileNavHeight: 35px;
 
-:root {
-  --baseline: 24px;
+$mobileBreakpoint: 500px;
+$desktopBreakpoint: 1023px;
 
-  /* Color values */
-  --bkg: #0f2631;
-  --text-blue: #00145c;
-  --white: #ffffff;
-  --gray: rgba(255, 255, 255, 0.5);
-  --black: #000000;
-  --dark-text: #414042;
+$text-xs: 12px;
+$text-sm: 16x;
+$text-md: 24px;
+$text-lg: 32px;
+$text-xl: 48px;
+$text-xxl: 64px;
+$text-xxl: 96px;
 
-  /* Border values */
-  --border-primary: 1px solid white;
-
-  /* spacing values */
-  --space-xxs: calc(var(--baseline) / 4);
-  --space-xs: calc(var(--baseline) / 4 * 1.5);
-  --space-sm: calc(var(--baseline) / 2);
-  --space-md: var(--baseline);
-  --space-lg: calc(var(--baseline) * 2);
-  --space-xl: calc(var(--baseline) * 3);
-  --space-xxl: calc(var(--baseline) * 4);
-
-  /* set base values */
-  --text-base-size: 1em;
-  --text-scale-ratio: 1.2;
-
-  /* type scale */
-  --text-xs: calc(1em / (var(--text-scale-ratio) * var(--text-scale-ratio)));
-  --text-sm: calc(1em / var(--text-scale-ratio));
-  --text-md: calc(1em * var(--text-scale-ratio));
-  --text-lg: calc(1em * var(--text-scale-ratio) * var(--text-scale-ratio));
-  --text-xl: calc(
-    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
-      var(--text-scale-ratio)
-  );
-  --text-xxl: calc(
-    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
-      var(--text-scale-ratio) * var(--text-scale-ratio)
-  );
-  --text-xxxl: calc(
-    1em * var(--text-scale-ratio) * var(--text-scale-ratio) *
-      var(--text-scale-ratio) * var(--text-scale-ratio) *
-      var(--text-scale-ratio)
-  );
-}
-
-body {
-  font-size: var(--text-base-size);
+.App body {
+  font-size: $text-md;
   font-family: var(--font-primary);
   color: var(--color-text);
 }
 
-h1,
-h2,
-h3,
-h4,
-form legend {
+.App h1,
+.App h2,
+.App h3,
+.App h4,
+.App form legend {
   color: var(--color-text-heading);
   margin-bottom: var(--space-xxs);
   line-height: var(--heading-line-height);
 }
 
-h1 {
+.App h1 {
   margin: 0;
 }
 
-h2 {
+.App h2 {
   margin: 0;
 }
 
-p {
+.App p {
   margin: 0;
-}
-
-/* text size */
-.text--xxxl {
-  font-size: var(--text-xxxl);
-}
-
-h1,
-.text--xxl {
-  font-size: var(--text-xxl);
-}
-
-h2,
-.text--xl {
-  font-size: var(--text-xl);
-}
-
-h3,
-.text--lg {
-  font-size: var(--text-lg);
-}
-
-h4,
-.text--md {
-  font-size: var(--text-md);
-}
-
-.text--sm,
-small {
-  font-size: var(--text-sm);
-}
-
-.text--xs {
-  font-size: var(--text-xs);
-}
-
-p {
   line-height: var(--body-line-height);
 }
 
-ul li {
+/* text size */
+
+.App h1,
+.text--xxl {
+  font-size: $text-xxl;
+}
+
+.App h2,
+.text--xl {
+  font-size: $text-xl;
+}
+
+.App h3,
+.text--lg {
+  font-size: $text-lg;
+}
+
+.App h4,
+.text--md {
+  font-size: $text-md;
+}
+
+.text--sm,
+.App small {
+  font-size: $text-sm;
+}
+
+.text--xs {
+  font-size: $text-xs;
+}
+
+.App ul li {
   list-style-type: none;
 }
 
-button {
+.App button {
   border-radius: 30px;
   background: rgba(0, 0, 0, 0);
   border: 1px solid white;
@@ -156,7 +120,7 @@ button {
   white-space: nowrap;
 }
 
-input[type="text"] {
+.App input[type='text'] {
   border: none;
   outline: none;
   height: 100%;
@@ -188,7 +152,7 @@ input[type="text"] {
 		for the icon, if you want to change the color, be sure to use `%23` instead of `#`, since it's a url. You can also swap in a different svg icon or an external image reference
 
 	*/
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
     linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
   background-repeat: no-repeat, repeat;
   /* arrow icon position (1em from the right, 50% vertical) , then gradient position*/
@@ -220,7 +184,7 @@ input[type="text"] {
 }
 
 /* Support for rtl text, explicit support for Arabic and Hebrew */
-*[dir="rtl"] .select-css,
+*[dir='rtl'] .select-css,
 :root:lang(ar) .select-css,
 :root:lang(iw) .select-css {
   background-position: left 0.7em top 50%, 0 0;
@@ -229,36 +193,36 @@ input[type="text"] {
 
 /* Disabled styles */
 .select-css:disabled,
-.select-css[aria-disabled="true"] {
+.select-css[aria-disabled='true'] {
   color: graytext;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22graytext%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
     linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
 }
 
 .select-css:disabled:hover,
-.select-css[aria-disabled="true"] {
+.select-css[aria-disabled='true'] {
   border-color: #aaa;
 }
 
-::-webkit-input-placeholder {
+.App ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  font-family: "Good Mono";
-  font-size: var(--text-sm);
+  font-family: 'Good Mono';
+  font-size: $text-sm;
 }
-::-moz-placeholder {
+.App ::-moz-placeholder {
   /* Firefox 19+ */
-  font-family: "Good Mono";
-  font-size: var(--text-sm);
+  font-family: 'Good Mono';
+  font-size: $text-sm;
 }
-:-ms-input-placeholder {
+.App :-ms-input-placeholder {
   /* IE 10+ */
-  font-family: "Good Mono";
-  font-size: var(--text-sm);
+  font-family: 'Good Mono';
+  font-size: $text-sm;
 }
-:-moz-placeholder {
+.App :-moz-placeholder {
   /* Firefox 18- */
-  font-family: "Good Mono";
-  font-size: var(--text-sm);
+  font-family: 'Good Mono';
+  font-size: $text-sm;
 }
 
 .Layout {

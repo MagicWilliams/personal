@@ -1,5 +1,7 @@
+@import '../../styles/globals.scss';
+
 .Footer {
-  padding: 2rem;
+  padding: $spacing-md;
   display: flex;
   width: 100%;
   align-items: flex-end;

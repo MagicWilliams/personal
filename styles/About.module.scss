@@ -1,0 +1,17 @@
+@import '../styles/globals.scss';
+
+.About {
+  padding: $spacing-md;
+  flex: 1;
+
+  h1 {
+    font-size: $text-lg;
+    margin-bottom: $spacing-sm;
+    margin-top: $spacing-lg;
+  }
+
+  .AboutBody {
+    width: 50%;
+    min-width: 250px;
+  }
+}

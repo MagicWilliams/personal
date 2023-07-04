@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './Footer.module.scss';
 
 export default function Footer(props) {
-  const { view, flipView, isMobile } = props;
+  const { view, flipView, isMobile, page } = props;
   let viewTxt = view === 'gallery' ? 'list view' : 'gallery view';
   return (
     <div className={styles.Footer}>
@@ -11,7 +11,7 @@ export default function Footer(props) {
         <Link href="/files/resume.pdf" passHref>
           <p className={styles.link}>résume</p>
         </Link>
-        {!isMobile && (
+        {!isMobile && page === 'index' && (
           <p className={styles.view} onClick={flipView}>
             {viewTxt}
           </p>

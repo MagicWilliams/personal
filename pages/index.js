@@ -47,7 +47,7 @@ const Home = props => {
   });
 
   return !loading ? (
-    <Layout view={view} flipView={flipView} isMobile={isMobile}>
+    <Layout view={view} page="index" flipView={flipView} isMobile={isMobile}>
       {isDesktop && view === 'gallery' && (
         <ProjectCarousel
           isMobile={isMobile}
