@@ -1,5 +1,6 @@
 import React from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }) {
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }) {
         onExitComplete={() => window.scrollTo(0, 0)}
       >
         <Component {...pageProps} />
+        <Analytics />
       </AnimatePresence>
     </div>
   );
