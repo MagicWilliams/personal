@@ -14,12 +14,13 @@
   &:hover {
     cursor: pointer;
   }
-}
 
-.title {
-  width: 100%;
-  font-weight: lighter;
-  margin-top: $spacing-md;
+  .title {
+    width: 100%;
+    font-weight: lighter;
+    margin-top: $spacing-md;
+    font-size: $text-lg;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -28,6 +29,10 @@
     img {
       height: auto;
       width: 100%;
+    }
+
+    .title {
+      font-size: $text-md;
     }
   }
 }

@@ -9,6 +9,11 @@
   justify-content: center;
   position: relative;
   width: 100%;
+
+  .projectTitle {
+    margin-bottom: 0.5rem;
+    font-size: $text-lg;
+  }
 }
 
 .info,
@@ -48,11 +53,6 @@
 .icon {
   height: 20px;
   margin-right: 1vw;
-}
-
-.projectTitle {
-  margin-bottom: 0.5rem;
-  font-size: 50px;
 }
 
 .projectDescription {
