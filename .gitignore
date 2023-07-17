@@ -27,6 +27,7 @@ yarn-error.log*
 # local env files
 .env
 .env.local
+.env.development
 .env.development.local
 .env.test.local
 .env.production.local
@@ -36,3 +37,6 @@ yarn-error.log*
 
 /studio
 /public/files
+
+sanity.cli.js
+sanity.json
