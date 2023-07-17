@@ -1,3 +1,5 @@
+@import '../../styles/globals.scss';
+
 .ProjectCard {
   display: flex;
   flex-direction: column;
@@ -17,6 +19,7 @@
 .title {
   width: 100%;
   font-weight: lighter;
+  margin-top: $spacing-md;
 }
 
 @media screen and (max-width: 900px) {

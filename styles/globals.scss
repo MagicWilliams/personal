@@ -42,7 +42,6 @@ $text-md: 24px;
 $text-lg: 32px;
 $text-xl: 48px;
 $text-xxl: 64px;
-$text-xxl: 96px;
 
 .App body {
   font-size: $text-md;
@@ -75,11 +74,11 @@ $text-xxl: 96px;
 
 /* text size */
 
-.App h1,
 .text--xxl {
   font-size: $text-xxl;
 }
 
+.App h1,
 .App h2,
 .text--xl {
   font-size: $text-xl;
