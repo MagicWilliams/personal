@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import styles from './Header.module.scss';
+import React from "react";
+import Image from "next/image";
+import styles from "./Header.module.scss";
 
 export default function Header(props) {
   let cursorOptions = {
@@ -16,7 +16,7 @@ export default function Header(props) {
       <div
         style={colorStyles}
         className={styles.text}
-        onClick={() => (window.location.href = '/')}
+        onClick={() => (window.location.href = "/")}
       >
         <span className={styles.title}>dlii</span>
         <p className={styles.subtitle}>
@@ -25,11 +25,20 @@ export default function Header(props) {
       </div>
       <div className={styles.links}>
         <Image
+          src="/img/linkedin.svg"
+          width={20}
+          height={20}
+          onClick={() =>
+            (window.location.href = "https://linkedin.com/in/dlatimore2")
+          }
+          alt="Peep my github lol"
+        />
+        <Image
           src="/img/github.svg"
           width={20}
           height={20}
           onClick={() =>
-            (window.location.href = 'https://github.com/MagicWilliams')
+            (window.location.href = "https://github.com/MagicWilliams")
           }
           alt="Peep my github lol"
         />
@@ -39,7 +48,7 @@ export default function Header(props) {
           height={20}
           alt="Follow me on the gram you know the vibes"
           onClick={() =>
-            (window.location.href = 'https://instagram.com/magic.zip')
+            (window.location.href = "https://instagram.com/magic.zip")
           }
         />
         <Image
@@ -48,7 +57,7 @@ export default function Header(props) {
           height={20}
           onClick={() =>
             (window.location.href =
-              'mailto:david.latimore@me.com?subject=Ayyyy')
+              "mailto:david.latimore@me.com?subject=Ayyyy")
           }
           alt="Let's talk"
         />

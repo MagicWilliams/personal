@@ -1,4 +1,4 @@
-@import '../../styles/globals.scss';
+@import "../../styles/globals.scss";
 
 .Header {
   display: flex;
@@ -19,11 +19,11 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  font-family: 'Rubik';
+  font-family: "Rubik";
 }
 
 .links {
-  width: 80px;
+  width: 100px;
   display: flex;
   justify-content: space-between;
 
@@ -43,7 +43,7 @@
 }
 
 .subtitle {
-  font-family: 'Rufina';
+  font-family: "Rufina";
   margin-left: 0.25rem;
 }
 
