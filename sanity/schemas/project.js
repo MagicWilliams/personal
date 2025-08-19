@@ -9,6 +9,14 @@ export default {
       title: 'Project Title',
     },
     {
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'title',
+      },
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'content',
