@@ -1,5 +1,6 @@
 import styles from '../styles/Landing.module.scss';
 import Narrative from '../components/Landing/Narrative';
+import Link from 'next/link';
 
 export const metadata = {
   title: 'Portfolio - D. Latimore II',
@@ -12,28 +13,10 @@ export default function Home() {
       <header className={styles.header}>
         <span className={styles.logo}>DLII</span>
         <nav className={styles.nav}>
-          <a href="mailto:hello@example.com">Email</a>
-          <a
-            href="https://github.com/magicwilliams"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Github
-          </a>
-          <a
-            href="https://instagram.com/magic.zip"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://linkedin.com/in/dlatimore2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+          <Link href="mailto:hello@delight.studio">Email</Link>
+          <Link href="https://github.com/magicwilliams">Github</Link>
+          <Link href="https://instagram.com/magic.zip">Instagram</Link>
+          <Link href="https://linkedin.com/in/dlatimore2">LinkedIn</Link>
         </nav>
       </header>
 
