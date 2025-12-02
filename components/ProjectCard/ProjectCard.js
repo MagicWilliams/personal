@@ -16,8 +16,8 @@ export default function ProjectCard(props) {
   const coverUrl = isMobile
     ? urlFor(mobileMedia[0].asset._ref).url()
     : media[0]._type === 'image'
-    ? urlFor(media[0].asset._ref).url()
-    : videoAssetFor(media[0].asset._ref).url;
+      ? urlFor(media[0].asset._ref).url()
+      : videoAssetFor(media[0].asset._ref).url;
   const slug = '/project/' + title.replace(/\s+/g, '-').toLowerCase();
 
   const [hovering, setHovering] = useState(false);

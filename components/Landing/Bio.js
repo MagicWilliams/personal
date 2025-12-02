@@ -12,11 +12,12 @@ const Bio = () => {
         how infrastructure shapes behavior, opportunity, and power.
       </p>
       <p>
-        I build projects that are both conceptual and operational. Sunset Index
-        is a speculative futures exchange built on Los Angeles parking-meter
-        data — part civic mirror, part financial satire, part functioning app.
-        Wall Art for the Crib transforms code, sensors, and ambient light into a
-        living installation that makes software feel architectural.
+        I build projects that are both conceptual and operational. The Sunset
+        Index is a speculative futures exchange built on Los Angeles
+        parking-meter data — part civic mirror, part financial satire, part
+        functioning app. "Some Wall Art for the Crib" (2020) transforms code,
+        sensors, and ambient light into a living installation that makes
+        software feel architectural.
       </p>
       <p>
         Across React Native, embedded hardware, data pipelines, and custom

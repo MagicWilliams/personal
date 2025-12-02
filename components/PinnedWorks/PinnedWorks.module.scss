@@ -36,7 +36,9 @@
     position: relative;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.88);
-    transition: color 160ms ease, opacity 160ms ease;
+    transition:
+      color 160ms ease,
+      opacity 160ms ease;
     opacity: 1;
     display: inline-block;
     padding: 1px 0; // match subtle vertical rhythm

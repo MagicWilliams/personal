@@ -9,7 +9,12 @@ import { ProjectMedia } from '../../../components/ProjectMedia/ProjectMedia';
 import useWindowSize from '../../../utils/useWindowSize';
 import Loading from '../../../components/Loading/Loading';
 
-export default function ProjectClientWrapper({ project, projects, mobileUrl, desktopUrl }) {
+export default function ProjectClientWrapper({
+  project,
+  projects,
+  mobileUrl,
+  desktopUrl,
+}) {
   const { width } = useWindowSize();
   const isMobile = width < 500;
 
@@ -64,4 +69,3 @@ export default function ProjectClientWrapper({ project, projects, mobileUrl, des
     </div>
   );
 }
-

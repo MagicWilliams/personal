@@ -3,7 +3,8 @@ import styles from '../../styles/About.module.scss';
 
 export const metadata = {
   title: 'About - david latimore ii: a digital portfolio',
-  description: 'About compulsively.online - a digital archive of creative works by david latimore ii.',
+  description:
+    'About compulsively.online - a digital archive of creative works by david latimore ii.',
 };
 
 export default function About() {
@@ -25,4 +26,3 @@ export default function About() {
     </Layout>
   );
 }
-

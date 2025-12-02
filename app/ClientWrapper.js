@@ -22,4 +22,3 @@ export default function ClientWrapper({ children }) {
     </AnimatePresence>
   );
 }
-

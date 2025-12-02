@@ -39,31 +39,62 @@ const Narrative = () => {
         <span className={styles.keyword}>financial logic</span>, and{' '}
         <span className={styles.keyword}>creative technology</span>, using code
         as a way to expose how infrastructure shapes behavior, opportunity, and
-        power.
-        <br />
-        <br />I build projects that are both conceptual and operational.{' '}
-        <Link
-          href="https://sunsetindex.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          onMouseEnter={() => handleHover('sunset')}
-          onMouseLeave={handleLeave}
-        >
-          Sunset Index
-        </Link>{' '}
-        is a speculative futures exchange built on Los Angeles parking-meter
-        data — part civic mirror, part financial satire, part functioning app.{' '}
-        <a
-          href="#"
-          onMouseEnter={() => handleHover('wallart')}
-          onMouseLeave={handleLeave}
-        >
-          Wall Art for the Crib
-        </a>{' '}
-        transforms code, sensors, and ambient light into a living installation
-        that makes software feel architectural.
-        <br />
-        <br />
+        power on projects that are both conceptual and operational.
+      </div>
+
+      <div className={styles.projectsGrid}>
+        <div className={styles.projectItem}>
+          <Link
+            href="https://sunsetindex.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => handleHover('sunset')}
+            onMouseLeave={handleLeave}
+            className={styles.projectLink}
+          >
+            The Sunset Index (2025)
+          </Link>
+          <p className={styles.projectDescription}>
+            is a speculative futures exchange built on Los Angeles parking-meter
+            data. Part civic mirror, part financial satire, part functioning
+            app.
+          </p>
+        </div>
+
+        <div className={styles.projectItem}>
+          <Link
+            href="#"
+            onMouseEnter={() => handleHover('wallart')}
+            onMouseLeave={handleLeave}
+            className={styles.projectLink}
+          >
+            "Some Wall Art for the Crib"
+          </Link>
+          <p className={styles.projectDescription}>
+            transforms code, sensors, and ambient light into a living
+            installation that makes software feel architectural.
+          </p>
+        </div>
+
+        <div className={styles.projectItem}>
+          <Link
+            href="https://hammerandhope.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => handleHover('h&h')}
+            onMouseLeave={handleLeave}
+            className={styles.projectLink}
+          >
+            Hammer & Hope
+          </Link>
+          <p className={styles.projectDescription}>
+            is an expressive, experimental online space for discussion around
+            Black politics and culture.
+          </p>
+        </div>
+      </div>
+
+      <div className={styles.narrative}>
         Across <span className={styles.keyword}>React Native</span>,{' '}
         <span className={styles.keyword}>embedded hardware</span>,{' '}
         <span className={styles.keyword}>data pipelines</span>, and{' '}
@@ -110,6 +141,26 @@ const Narrative = () => {
             fill
             sizes="300px"
             style={{ objectFit: 'cover' }}
+          />
+        </div>
+      </div>
+
+      <div
+        className={`${styles.floatingVisual} ${
+          hoveredItem === 'h&h' ? styles.active : ''
+        }`}
+        style={{ left: cursorPos.x, top: cursorPos.y }}
+      >
+        <div
+          className={styles.hammerAndHopePlaceholder}
+          style={{ position: 'relative' }}
+        >
+          <Image
+            src="/img/h&h.jpg"
+            alt="Hammer & Hope"
+            fill
+            sizes="300px"
+            style={{ objectFit: 'contain' }}
           />
         </div>
       </div>

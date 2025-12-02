@@ -37,7 +37,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${spaceMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
       </head>
       <body>
         <ClientWrapper>
@@ -51,4 +55,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-

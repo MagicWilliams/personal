@@ -9,15 +9,18 @@ const Philosophy = () => {
         <ul>
           <li>
             <strong>Code as Medium</strong>
-            Software isn&apos;t just a utility; it&apos;s a material we can shape to express ideas.
+            Software isn&apos;t just a utility; it&apos;s a material we can
+            shape to express ideas.
           </li>
           <li>
             <strong>Systems as Subject</strong>
-            I&apos;m interested in the rules that govern our lives, from municipal codes to algorithms.
+            I&apos;m interested in the rules that govern our lives, from
+            municipal codes to algorithms.
           </li>
           <li>
             <strong>Small Tools</strong>
-            Sometimes the most powerful software is a simple, single-purpose tool that does one thing beautifully.
+            Sometimes the most powerful software is a simple, single-purpose
+            tool that does one thing beautifully.
           </li>
         </ul>
       </div>
