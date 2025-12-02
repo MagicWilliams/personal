@@ -19,15 +19,20 @@ $color-accent-glow: #3b82f6;
   align-items: center;
   justify-content: center;
   padding: 12vh 24px; // Added significant vertical padding
-  
+
   // Dynamic Background Animation
-  &::before, &::after {
-    content: "";
+  &::before,
+  &::after {
+    content: '';
     position: fixed;
     width: 60vw;
     height: 60vw;
     border-radius: 50%;
-    background: radial-gradient(circle at center, rgba($color-accent, 0.15), rgba($color-bg, 0) 70%);
+    background: radial-gradient(
+      circle at center,
+      rgba($color-accent, 0.15),
+      rgba($color-bg, 0) 70%
+    );
     filter: blur(80px);
     z-index: 0;
     pointer-events: none;
@@ -37,23 +42,39 @@ $color-accent-glow: #3b82f6;
   &::before {
     top: -10%;
     left: -10%;
-    background: radial-gradient(circle at center, rgba($color-accent, 0.2), rgba($color-bg, 0) 60%);
+    background: radial-gradient(
+      circle at center,
+      rgba($color-accent, 0.2),
+      rgba($color-bg, 0) 60%
+    );
     animation-delay: -5s;
   }
 
   &::after {
     bottom: -10%;
     right: -10%;
-    background: radial-gradient(circle at center, rgba($color-accent-glow, 0.15), rgba($color-bg, 0) 60%);
+    background: radial-gradient(
+      circle at center,
+      rgba($color-accent-glow, 0.15),
+      rgba($color-bg, 0) 60%
+    );
     animation-delay: -10s;
   }
 }
 
 @keyframes float {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, 50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0, 0) scale(1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, 50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 .main {
@@ -68,12 +89,12 @@ $color-accent-glow: #3b82f6;
   font-weight: 500;
   letter-spacing: -0.03em;
   color: $color-text-dim;
-  
+
   p {
     margin-bottom: 0;
     display: inline;
   }
-  
+
   .highlight {
     color: $color-text;
     font-weight: 600;
@@ -88,7 +109,7 @@ $color-accent-glow: #3b82f6;
     cursor: pointer;
     position: relative;
     white-space: nowrap;
-    
+
     &:hover {
       background: rgba($color-accent, 0.2);
       border-bottom-color: $color-accent;
@@ -104,10 +125,33 @@ $color-accent-glow: #3b82f6;
     color: $color-text;
     cursor: default;
     transition: color 0.3s;
-    
+
     &:hover {
       color: $color-accent;
     }
+  }
+
+  // Hoverable word with cursor-centered radial glow
+  .word {
+    position: relative;
+    display: inline;
+  }
+
+  .wordHover {
+    color: $color-text; // glow to white
+  }
+
+  .wordHover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      90px circle at var(--cx) var(--cy),
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0) 60%
+    );
+    filter: blur(8px);
   }
 }
 
@@ -115,12 +159,12 @@ $color-accent-glow: #3b82f6;
 .floatingVisual {
   position: fixed;
   pointer-events: none;
-  z-index: 10; // Above text for clarity or below? Let's keep it subtle, maybe z-index 1 is better if we want text over it. 
-  // Actually, user asked for "interesting animations in the background". 
+  z-index: 10; // Above text for clarity or below? Let's keep it subtle, maybe z-index 1 is better if we want text over it.
+  // Actually, user asked for "interesting animations in the background".
   // But the floating visual is a specific interaction. Let's keep it z-index 10 but small opacity or blend mode?
-  // Let's stick to the previous behavior: z-index 1 (behind text) or 10 (popup). 
+  // Let's stick to the previous behavior: z-index 1 (behind text) or 10 (popup).
   // Previous plan had z-index 1. Let's try z-index 10 for "pop" effect since the background is black.
-  z-index: 10; 
+  z-index: 10;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.8);
   transition: opacity 0.2s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -130,12 +174,12 @@ $color-accent-glow: #3b82f6;
   overflow: hidden;
   border: 1px solid $color-accent;
   background: #000;
-  
+
   &.active {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
-  
+
   // Placeholder styles
   .sunsetPlaceholder {
     background: linear-gradient(45deg, #000, #1a1a1a);
@@ -148,7 +192,7 @@ $color-accent-glow: #3b82f6;
     font-family: $font-mono;
     font-size: 0.8rem;
   }
-  
+
   .wallartPlaceholder {
     background: radial-gradient(circle, #111, #000);
     width: 100%;

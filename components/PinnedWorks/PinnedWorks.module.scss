@@ -1,0 +1,102 @@
+@import '../../styles/globals.scss';
+
+.fixedList {
+  position: fixed;
+  left: 40px; // align with request
+  top: calc(#{$spacing-md} + 52px); // shifted down by another 16px
+  z-index: 10000;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px; // match small header sizing
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  pointer-events: auto;
+  padding: $spacing-sm 0; // give the group some breathing room
+
+  .label {
+    margin: 0 0 8px 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    margin: 0 0 6px 0;
+    line-height: 1.1;
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.88);
+    transition: color 160ms ease, opacity 160ms ease;
+    opacity: 1;
+    display: inline-block;
+    padding: 1px 0; // match subtle vertical rhythm
+
+    // animated underline
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: currentColor; // solid underline color, no gradient
+      transform: scaleX(1); // underline visible by default
+      transform-origin: left;
+      transition: transform 180ms ease-out;
+    }
+
+    &:hover {
+      color: #ffffff; // subtle brighten on hover
+      &::after {
+        transform: scaleX(0); // hide underline on hover
+      }
+    }
+  }
+}
+
+.mobileBar {
+  display: none;
+}
+
+.mobileLink {
+  font-family: 'Space Mono', monospace;
+  display: inline-block;
+  padding: 6px 10px;
+  margin-right: 8px;
+  border-radius: 999px;
+  border: 1px solid #fff;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+@media screen and (max-width: 900px) {
+  .fixedList {
+    display: none;
+  }
+
+  .mobileBar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    padding: 0 $spacing-md;
+    z-index: 10000;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

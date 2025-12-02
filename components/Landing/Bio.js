@@ -5,19 +5,26 @@ const Bio = () => {
   return (
     <section className={styles.bio}>
       <p>
-        I've always been obsessed with how things work—from the invisible data flows of a city to the quiet atmosphere of a living room.
+        I’m <strong>David</strong> — a software engineer and artist who studies
+        the hidden mechanics of everyday life and turns them into tools,
+        systems, and stories. My work sits at the intersection of civic data,
+        financial logic, and creative technology, using code as a way to expose
+        how infrastructure shapes behavior, opportunity, and power.
       </p>
       <p>
-        My practice is about <strong>bridging the gap</strong> between complex systems and human experience. I use code not just to build apps, but to tell stories and ask questions.
+        I build projects that are both conceptual and operational. Sunset Index
+        is a speculative futures exchange built on Los Angeles parking-meter
+        data — part civic mirror, part financial satire, part functioning app.
+        Wall Art for the Crib transforms code, sensors, and ambient light into a
+        living installation that makes software feel architectural.
       </p>
-      
-      <div className={styles.techStack}>
-        <span>React Native</span>
-        <span>Next.js</span>
-        <span>Custom APIs</span>
-        <span>Data Pipelines</span>
-        <span>Embedded Hardware</span>
-      </div>
+      <p>
+        Across React Native, embedded hardware, data pipelines, and custom
+        interfaces, I use engineering as a medium: a way to prototype
+        alternative realities, challenge default assumptions, and create work
+        that’s culturally attuned, technically rigorous, and built to ship — not
+        just theorize.
+      </p>
     </section>
   );
 };
