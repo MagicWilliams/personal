@@ -68,7 +68,7 @@ const Narrative = () => {
             onMouseLeave={handleLeave}
             className={styles.projectLink}
           >
-            "Some Wall Art for the Crib"
+            &ldquo;Some Wall Art for the Crib&rdquo;
           </Link>
           <p className={styles.projectDescription}>
             transforms code, sensors, and ambient light into a living

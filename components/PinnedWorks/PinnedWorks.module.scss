@@ -73,15 +73,18 @@
 .mobileLink {
   font-family: 'Space Mono', monospace;
   display: inline-block;
-  padding: 6px 10px;
-  margin-right: 8px;
+  padding: 3px 8px;
+  margin-right: 0; // Gap handled by parent flex gap
   border-radius: 999px;
   border: 1px solid #fff;
   white-space: nowrap;
   text-decoration: none;
-  color: #fff;
+  color: #ffffff !important; // Explicitly white for visibility, override global styles
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(6px);
+  flex-shrink: 0; // Prevent links from shrinking
+  font-size: 0.7rem; // Smaller text size (~11px)
+  line-height: 1.2;
 }
 
 @media screen and (max-width: 900px) {
@@ -90,15 +93,19 @@
   }
 
   .mobileBar {
-    display: block;
+    display: flex;
     position: fixed;
     left: 0;
     right: 0;
-    bottom: 12px;
-    padding: 0 $spacing-md;
+    top: 70px; // Position just below header (header is at top: 32px with ~38px height)
+    padding: $spacing-sm $spacing-md; // Reduced vertical padding
     z-index: 10000;
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    gap: 6px; // Reduced gap between buttons
+    max-width: 100vw; // Ensure it doesn't exceed viewport width
+    box-sizing: border-box;
+    justify-content: center; // Center the links horizontally
   }
 }
