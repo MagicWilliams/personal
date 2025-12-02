@@ -8,7 +8,7 @@ export default function Footer(props) {
   return (
     <div className={styles.Footer}>
       <div className={styles.links}>
-        <Link href="/files/resume.pdf" passHref>
+        <Link href="/files/resume.pdf">
           <p className={styles.link}>résume</p>
         </Link>
         {!isMobile && page === 'index' && (

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef } from 'react';
 import styles from '../../styles/Landing.module.scss';
 import Image from 'next/image';

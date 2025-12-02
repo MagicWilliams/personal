@@ -12,7 +12,7 @@ const Hero = () => {
         </h1>
         <div className={styles.statement}>
           <p>
-            Hi, I'm a <strong>Creative Technologist & Artist</strong>. I build digital tools and physical installations that help us see the world a little differently.
+            Hi, I&apos;m a <strong>Creative Technologist & Artist</strong>. I build digital tools and physical installations that help us see the world a little differently.
           </p>
         </div>
       </div>

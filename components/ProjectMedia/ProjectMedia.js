@@ -1,12 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import styles from './ProjectMedia.module.scss';
 import Image from 'next/image';
-import useWindowSize from '../../utils/useWindowSize';
-
-const isSafari = () => {
-  const ua = navigator.userAgent.toLowerCase();
-  return ua.indexOf('safari') > -1 && ua.indexOf('chrome') < 0;
-};
 
 export const ProjectMedia = props => {
   const { url, name, media, isMobile } = props;
@@ -15,8 +9,6 @@ export const ProjectMedia = props => {
     return null;
   }
 
-  console.log(isMobile);
-
   return isMobile ? (
     <div className={styles.mobileMediaContainer}>
       <Image
@@ -24,8 +16,9 @@ export const ProjectMedia = props => {
         placeholder="blur"
         blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
         className={styles.ProjectMedia}
-        layout="fill"
+        fill
         alt={name}
+        sizes="100vw"
       />
     </div>
   ) : (
@@ -37,7 +30,7 @@ export const ProjectMedia = props => {
         loop
         muted
         autoPlay
-        playsinline
+        playsInline
         preload="metadata"
       >
       <source src="${url}" type="video/mp4" alt="${name}" />

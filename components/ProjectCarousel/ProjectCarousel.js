@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import styles from './ProjectCarousel.module.scss';
 import Marquee from 'react-fast-marquee';
@@ -5,17 +7,6 @@ import ProjectCard from '../ProjectCard/ProjectCard';
 import Link from 'next/link';
 import useWindowSize from '../../utils/useWindowSize';
 import { videoAssetFor } from '../../utils/videoAssetFor';
-import { createClient } from 'next-sanity';
-
-const config = {
-  projectId: process.env.SANITY_PROJECT_ID,
-  dataset: process.env.SANITY_DATASET,
-  apiVersion: '2022-07-22',
-  token: process.env.SANITY_ACCESS_TOKEN,
-  useCdn: false,
-};
-
-const client = createClient(config);
 
 export default function ProjectCarousel(props) {
   const { projects, links, urlFor, isMobile } = props;

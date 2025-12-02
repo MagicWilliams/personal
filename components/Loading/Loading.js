@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { NextSeo } from "next-seo";
-import Head from "next/head";
-import styles from "./Loading.module.scss";
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import Head from 'next/head';
+import styles from './Loading.module.scss';
 
 const Loading = () => {
   return (
@@ -45,24 +45,24 @@ const Loading = () => {
         description="selected works"
         canonical="https://davidlatimore.me"
         openGraph={{
-          url: "https://davidlatimore.me",
+          url: 'https://davidlatimore.me',
           title: "david's portfolio",
-          description: "selected works",
+          description: 'selected works',
           images: [
             {
-              url: "https://davidlatimore.me/img/open_graph.png",
+              url: 'https://davidlatimore.me/img/open_graph.png',
               width: 800,
               height: 600,
-              alt: "Og Image Alt",
-              type: "image/png",
+              alt: 'Og Image Alt',
+              type: 'image/png',
             },
           ],
-          site_name: "david latimore ii: a digital archive",
+          site_name: 'david latimore ii: a digital archive',
         }}
         twitter={{
-          handle: "@magic_zip",
-          site: "https://davidlatimore.me",
-          cardType: "summary",
+          handle: '@magic_zip',
+          site: 'https://davidlatimore.me',
+          cardType: 'summary',
         }}
       />
       <h2>Loading...</h2>

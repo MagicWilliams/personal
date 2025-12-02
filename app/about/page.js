@@ -1,8 +1,12 @@
-import React from 'react';
-import Layout from '../components/Layout/Layout';
-import styles from '../styles/About.module.scss';
+import Layout from '../../components/Layout/Layout';
+import styles from '../../styles/About.module.scss';
 
-export const About = () => {
+export const metadata = {
+  title: 'About - david latimore ii: a digital portfolio',
+  description: 'About compulsively.online - a digital archive of creative works by david latimore ii.',
+};
+
+export default function About() {
   return (
     <Layout>
       <div className={styles.About}>
@@ -20,6 +24,5 @@ export const About = () => {
       </div>
     </Layout>
   );
-};
+}
 
-export default About;
