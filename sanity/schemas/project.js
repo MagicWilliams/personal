@@ -43,5 +43,16 @@ export default {
       type: 'boolean',
       title: 'Make Visible on Site?',
     },
+    {
+      name: 'url',
+      type: 'url',
+      title: 'Project URL',
+    },
+    {
+      name: 'categories',
+      type: 'array',
+      title: 'Categories',
+      of: [{type: 'string'}],
+    },
   ],
 }

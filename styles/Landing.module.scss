@@ -1,0 +1,199 @@
+$font-sans: 'Inter', sans-serif;
+$font-mono: 'Space Mono', monospace;
+
+// Functional Palette
+$color-bg: #000000;
+$color-text: #ffffff;
+$color-text-dim: #888888;
+$color-accent: #2563eb; // Signal Blue
+$color-accent-glow: #3b82f6;
+
+.container {
+  background-color: $color-bg;
+  color: $color-text;
+  font-family: $font-sans;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12vh 24px; // Added significant vertical padding
+  
+  // Dynamic Background Animation
+  &::before, &::after {
+    content: "";
+    position: fixed;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba($color-accent, 0.15), rgba($color-bg, 0) 70%);
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+    animation: float 20s infinite alternate;
+  }
+
+  &::before {
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(circle at center, rgba($color-accent, 0.2), rgba($color-bg, 0) 60%);
+    animation-delay: -5s;
+  }
+
+  &::after {
+    bottom: -10%;
+    right: -10%;
+    background: radial-gradient(circle at center, rgba($color-accent-glow, 0.15), rgba($color-bg, 0) 60%);
+    animation-delay: -10s;
+  }
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, 50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.main {
+  max-width: 900px; // Narrower for better reading experience
+  position: relative;
+  z-index: 2;
+}
+
+.narrative {
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: $color-text-dim;
+  
+  p {
+    margin-bottom: 0;
+    display: inline;
+  }
+  
+  .highlight {
+    color: $color-text;
+    font-weight: 600;
+  }
+
+  // Interactive Links
+  a {
+    color: $color-text;
+    text-decoration: none;
+    border-bottom: 2px solid rgba($color-accent, 0.5);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    
+    &:hover {
+      background: rgba($color-accent, 0.2);
+      border-bottom-color: $color-accent;
+      color: $color-accent-glow;
+      padding: 0 4px;
+      margin: 0 -4px;
+      border-radius: 4px;
+    }
+  }
+
+  // Keywords
+  .keyword {
+    color: $color-text;
+    cursor: default;
+    transition: color 0.3s;
+    
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+// Floating Visuals
+.floatingVisual {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10; // Above text for clarity or below? Let's keep it subtle, maybe z-index 1 is better if we want text over it. 
+  // Actually, user asked for "interesting animations in the background". 
+  // But the floating visual is a specific interaction. Let's keep it z-index 10 but small opacity or blend mode?
+  // Let's stick to the previous behavior: z-index 1 (behind text) or 10 (popup). 
+  // Previous plan had z-index 1. Let's try z-index 10 for "pop" effect since the background is black.
+  z-index: 10; 
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.2s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 300px;
+  height: 200px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid $color-accent;
+  background: #000;
+  
+  &.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  // Placeholder styles
+  .sunsetPlaceholder {
+    background: linear-gradient(45deg, #000, #1a1a1a);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-accent;
+    font-family: $font-mono;
+    font-size: 0.8rem;
+  }
+  
+  .wallartPlaceholder {
+    background: radial-gradient(circle, #111, #000);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-accent;
+    font-family: $font-mono;
+    font-size: 0.8rem;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 32px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 100;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  color: $color-text-dim;
+
+  .logo {
+    font-weight: 700;
+    color: $color-text;
+    letter-spacing: 0.1em;
+    user-select: none;
+  }
+
+  .nav {
+    display: flex;
+    gap: 24px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+}
